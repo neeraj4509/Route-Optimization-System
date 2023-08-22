@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Locations and Weight</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600;700&display=swap');
+
+    * {
+        font-family: 'Ubuntu', sans-serif;
+
+    }
+
+    body {
+        height: 98vh;
+
+        background-image: url(/static/images/bg3.jpg);
+        font-family: 'Ubuntu', sans-serif;
+        background-position: center center;
+    }
+
+    table {
+        /*   border: 1px solid #ccc; */
+        border-collapse: collapse;
+        margin: 0 auto;
+        padding: 0;
+        width: 80%;
+        table-layout: fixed;
+    }
+
+    table caption {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 55px;
+        font-weight: 700;
+        color: #00000090;
+        padding: 15px;
+    }
+
+    table tr {
+        background-color: #ffffff90;
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .thead {
+        background-color: rgb(173, 57, 57);
+        color: #fff;
+    }
+
+    table th,
+    table td {
+        padding: 20px;
+        text-align: center;
+    }
+
+    table th {
+        font-size: 20px;
+        letter-spacing: .1em;
+        text-transform: capitalize;
+    }
+
+    @media screen and (max-width: 600px) {
+        table {
+            border: 0;
+        }
+
+        .thead {
+            background-color: rgb(202, 56, 83);
+            color: #fff;
+        }
+
+        table caption {
+            font-size: 35px;
+            font-weight: 700;
+            color: #00000090;
+        }
+
+        table thead {
+            border: none;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+
+        table tr {
+            border-bottom: 3px solid #ddd;
+            display: block;
+            margin-bottom: .625em;
+        }
+
+        table td {
+            border-bottom: 1px solid #ddd;
+            display: block;
+            font-size: .8em;
+            text-align: right;
+        }
+
+        table td::before {
+            /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        table td:last-child {
+            border-bottom: 0;
+        }
+    }
+</style>
+
+<body>
+    <table>
+        <caption style="color: #fff;">Added Locations And Weights</caption>
+        <thead>
+            <tr class="thead">
+
+                <th scope="col">Location</th>
+                <th scope="col">Weight</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in input1 %}
+            {% if forloop.counter|divisibleby:2 %}
+            <tr>
+                <td>{{ i }}</td>
+                {% else %}
+                <td>{{ i }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>

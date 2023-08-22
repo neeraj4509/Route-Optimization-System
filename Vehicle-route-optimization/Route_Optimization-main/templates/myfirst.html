@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Add Location to Excel</h1>
+    <form method="post" action="{% url 'members' %}">
+
+        {% csrf_token %}
+        <div class="form1">
+            <input type="text" id="input1" name="location" required>
+            <label for="input1">Location</label>
+        </div>
+        <br>
+        <div class="form1">
+            <input type="text" id="input1" name="weight" required>
+            <label for="input1">Weight</label>
+        </div>
+        <button type="submit" name="add_location">Add Location</button>
+    </form>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Location to Excel</title>
+</head>
+
+<body>
+    <h1>Add Location to Excel</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Location</button>
+    </form>
+</body>
+
+</html> -->

@@ -1,0 +1,12 @@
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://www.amazon.in/s?k=bags&crid=2M096C61O4MLT&qid=1653308124&sprefix=ba%2Caps%2C283&ref=sr_pg_1"
+page = requests.get(url)
+soup = BeautifulSoup(page.content, "html.parser")
+
+product_list = soup.find_all("span", class_="s-result-item")
+
+for product in product_list:
+    product_url = product.find("a")["href"]
+    print(product_url)
